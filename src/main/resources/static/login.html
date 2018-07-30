@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<#include "commons/common_header.ftl">
+<body>
+<div class="am-u-lg-4 am-u-md-8 am-u-sm-centered">
+    <form class="am-form">
+        <fieldset>
+            <legend>OurHome 登录</legend>
+
+            <div class="am-form-group">
+                <label for="doc-ipt-email-1">登录名</label>
+                <input type="text" name="loginNum" class="" id="doc-ipt-email-1" placeholder="输入登录名">
+            </div>
+
+            <div class="am-form-group">
+                <label for="doc-ipt-pwd-1">密码</label>
+                <input type="password" name="loginPassword" class="" id="doc-ipt-pwd-1" placeholder="输入密码">
+            </div>
+            <p>
+                <button id="formSubmit" type="submit" class="am-btn am-btn-default">提交</button>
+            </p>
+        </fieldset>
+    </form>
+</div>
+</body>
+
+<script>
+    $("#formSubmit").click(function () {
+        var loginNum = $('input[name="loginNum"]').val();
+        var loginPassword = $('input[name="loginPassword"]').val();
+        $.ajax({
+            url: "/doLogin",
+            type: "POST",
+            data: {
+                loginNum: loginNum,
+                loginPassword: loginPassword
+            },
+            success: function (res) {
+                debugger;
+                if (res.success) {
+                    alert("登录成功！");
+                } else {
+                    alert("登录失败！")
+                }
+            }
+        })
+    })
+</script>
+</html>
