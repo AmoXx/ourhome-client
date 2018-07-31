@@ -14,8 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class MainController extends BaseController {
 
+    private static final String MAIN_VIEW = "main";
+
+    /**
+     * 跳转首页
+     *
+     * @author xinlizz
+     * @Date 2018/7/31
+     * @Param []
+     * @return java.lang.String
+     */
     @RequestMapping("/main")
     public String toMain(){
-        return "main";
+        return MAIN_VIEW;
     }
 }

@@ -19,11 +19,11 @@ public class BaseController {
 
     private ThreadLocal<Long> loginIdLocal = new ThreadLocal();
 
-    public Long getLoginId() {
+    protected Long getLoginId() {
         return loginIdLocal.get();
     }
 
-    public void setLoginId(Long loginId) {
+    protected void setLoginId(Long loginId) {
         loginIdLocal.set(loginId);
     }
 

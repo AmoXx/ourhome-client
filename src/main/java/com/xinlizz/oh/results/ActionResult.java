@@ -19,6 +19,7 @@ public class ActionResult implements Serializable {
     private Object retValue;
 
     public ActionResult() {
+        message = "操作成功";
         success = true;
     }
 
