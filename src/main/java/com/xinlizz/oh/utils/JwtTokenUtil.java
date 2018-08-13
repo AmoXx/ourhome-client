@@ -7,7 +7,12 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.xinlizz.oh.dto.LoginInfoDto;
 import com.xinlizz.oh.exception.TokenException;
+import freemarker.template.utility.DateUtil;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
+import org.joda.time.DateTime;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -41,9 +46,10 @@ public class JwtTokenUtil {
         return headerMap;
     }
 
-    public static String createToken(LoginInfoDto loginInfoDto) {
+    public static String createToken(LoginInfoDto loginInfoDto, int expire) {
         try {
             return JWT.create()
+                    .withExpiresAt(DateTime.now().plusSeconds(expire).toDate())
                     .withHeader(getHeaders())
                     .withClaim(LOGIN_ID, loginInfoDto.getId())
                     .withClaim(LOGIN_NUM, loginInfoDto.getLoginNum())
