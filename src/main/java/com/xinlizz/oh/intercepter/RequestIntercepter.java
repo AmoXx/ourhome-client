@@ -21,7 +21,7 @@ public class RequestIntercepter implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        AbstractTokenHandler tokenHandler = new RedisTokenHandler();
+        AbstractTokenHandler tokenHandler = new RedisSessionHandler();
         return tokenHandler.tokenHandler(request, response, handler);
     }
 }

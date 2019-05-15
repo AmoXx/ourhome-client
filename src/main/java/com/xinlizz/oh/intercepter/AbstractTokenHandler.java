@@ -11,14 +11,16 @@ import javax.servlet.http.HttpServletResponse;
  */
 public abstract class AbstractTokenHandler {
 
+    /** TOKEN */
+    protected static final String TOKEN = "Token";
+
     /**
      * 验证token
      *
-     * @return boolean
-     *
-     * @author xinlizz
-     * @Date 2018/7/20
-     * @Param [request, response]
+     * @param request  request
+     * @param response response
+     * @param handler  handler
+     * @return true/false
      */
     public abstract boolean tokenHandler(HttpServletRequest request, HttpServletResponse response, Object handler);
 }

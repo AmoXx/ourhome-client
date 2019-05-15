@@ -19,7 +19,6 @@ public class StringUtil extends StringUtils {
      * <li>StringUtil.equal("a", "a")  return true</li>
      *
      * @return boolean
-     *
      * @author xinlizz
      * @Date 2018/7/31
      * @Param [str1, str2]
@@ -29,5 +28,28 @@ public class StringUtil extends StringUtils {
             return false;
         }
         return str1.equals(str2);
+    }
+
+    /**
+     * 字符串是否为空
+     * <li>StringUtil.isBlank("") return true</li>
+     * <li>StringUtil.isBlank(null) return true</li>
+     * <li>StringUtil.isBlank("abc") return false</li>
+     *
+     * @param str str
+     * @return true/false
+     */
+    public static boolean isBlank(String str) {
+        return null == str || "".equals(str);
+    }
+
+    /**
+     * 判断字符串是否不为空
+     *
+     * @param str str
+     * @return true/false
+     */
+    public static boolean isNotBlank(String str) {
+        return !isBlank(str);
     }
 }
